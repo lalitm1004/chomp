@@ -1,0 +1,38 @@
+.tile {
+    cursor: pointer;
+    position: relative;
+}
+
+.tile::before {
+    background-color: rgb(10,10,10);
+    inset: 1px;
+    position: absolute;
+    content: "";
+    border-radius: 5px;
+}
+
+.wrapper {
+    background: linear-gradient(
+        to right,
+        #F73071,
+        #F29F75,
+        #F73071
+    );
+    animation: pan 10s linear infinite;
+    background-size: 200%;
+    border-radius: 5px;
+    padding: 0.5px;
+}
+
+@keyframes pan {
+    0% {
+        background-position: 0% center;
+    }
+    100% {
+        background-position: -200% center;
+    }
+}
+
+.tile {
+    transition: opacity 300ms;
+}
