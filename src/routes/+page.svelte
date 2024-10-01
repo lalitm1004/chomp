@@ -68,10 +68,10 @@
 </script>
 
 <main class={`h-screen w-screen py-10 flex flex-col justify-between items-center`}>
-    <h1 class={`text-7xl`}>Chomp!</h1>
+    <h1 class={`text-5xl md:text-7xl`}>Chomp!</h1>
     <div class={`flex flex-col gap-4 justify-center items-center flex-grow w-full`}>
-        <p class={`text-5xl my-2`}>Player {currentPlayer + 1}'s Turn!</p>
-        <div bind:this={wrapper} class={`wrapper relative h-[20%] md:h-[75%] w-[80%] grid place-items-center border-4     border-neutral-800`} style={`grid-template-columns: repeat(var(--cols), 1fr); grid-template-rows: repeat(var(--rows), 1ft);`}>
+        <p class={`text-2xl md:text-5xl my-2`}>Player {currentPlayer + 1}'s Turn!</p>
+        <div bind:this={wrapper} class={`wrapper relative h-[75%] w-[80%] grid place-items-center border-4     border-neutral-800`} style={`grid-template-columns: repeat(var(--cols), 1fr); grid-template-rows: repeat(var(--rows), 1ft);`}>
             {#each Array(numRows * numCols) as item, index (index)}
                 <button data-display="1" id={`tile-${index}`} class={`tile h-full w-full`} on:click={() => handleTileClick(index)}>
                     {#if (index === (numRows - 1) * numCols)}
@@ -86,11 +86,11 @@
                 </button>
             {/each}
             {#if displayWinner}
-                <p in:fade={{duration: 300}} class={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-3xl text-neutral-800`}>Player {currentPlayer === 0 ? 1 : 2} Wins!</p>
+                <p in:fade={{duration: 300}} class={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-xl md:text-3xl text-neutral-800`}>Player {currentPlayer === 0 ? 1 : 2} Wins!</p>
             {/if}
         </div>
-        <button on:click={() => handleResetClick()} class={`flex flex-row items-center gap-2 px-8 py-4 text-4xl border-2 border-neutral-800 rounded-xl`}>
-            <img src={refreshCwSvg} alt={`reset`}/>
+        <button on:click={() => handleResetClick()} class={`flex flex-row items-center gap-2 px-8 py-4 text-2xl md:text-4xl border-2 border-neutral-800 rounded-xl`}>
+            <img class={`h-[20px] md:h-[30px] aspect-square`} src={refreshCwSvg} alt={`reset`}/>
             <p>Reset!</p>
         </button>
     </div>

@@ -20,7 +20,7 @@
     );
     animation: pan 10s linear infinite;
     background-size: 200%;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 0.5px;
 }
 
