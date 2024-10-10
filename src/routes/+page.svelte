@@ -12,6 +12,8 @@
     let currentPlayer: number = 0;
     let displayWinner: boolean = false;
 
+    let showMarkers: boolean = false;
+
     const updateGrid = () => {
         numRows = Math.floor(wrapper.clientHeight / boxSizePx);
         numCols = Math.floor(wrapper.clientWidth / boxSizePx);
@@ -68,7 +70,7 @@
 </script>
 
 <main class={`h-screen w-screen py-10 flex flex-col justify-between items-center`}>
-    <h1 class={`text-5xl md:text-7xl`}>Chomp!</h1>
+    <h1 class={`text-5xl md:text-7xl`}>Ch<button on:click={() => showMarkers = !showMarkers}>o</button>mp!</h1>
     <div class={`flex flex-col gap-4 justify-center items-center flex-grow w-full`}>
         <p class={`text-2xl md:text-5xl my-2`}>Player {currentPlayer + 1}'s Turn!</p>
         <div bind:this={wrapper} class={`wrapper relative h-[75%] w-[80%] grid place-items-center border-4     border-neutral-800`} style={`grid-template-columns: repeat(var(--cols), 1fr); grid-template-rows: repeat(var(--rows), 1ft);`}>
@@ -81,6 +83,10 @@
                                 <circle cx="15" cy="12" r="1"/>
                                 <circle cx="9" cy="12" r="1"/>
                             </svg>
+                        </div>
+                    {:else if (showMarkers)}
+                        <div class={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2`}>
+                            <p class={`text-sm text-neutral-100/30`}>{Math.floor(index / numCols) + 1}-{Math.floor(index % numCols) + 1}</p>
                         </div>
                     {/if}
                 </button>
