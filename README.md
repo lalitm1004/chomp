@@ -1,6 +1,6 @@
 # chomp!
 
-A 2-player game where each player tries to push to other into eating the poisoned chocolate.
+A 2-player game where each player tries to push the other into eating the poisoned chocolate.
 
 ## Live deployment
 
